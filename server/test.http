@@ -1,0 +1,39 @@
+GET http://localhost:5050 HTTP/1.1
+###
+GET https://localhost:5050 HTTP/1.1
+###
+GET https://localhost:5050/record HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6InlvdXdpbGxuZXZlcmd1ZXNzIiwiaWF0IjoxNjk1MjUxMjQxLCJleHAiOjE2OTUyNTQ4NDF9.qWclnEkiX9WxzQCKZkIrG-OiXn_9qgFaFeTZ_8bFQs0
+###
+POST https://localhost:5050/user HTTP/1.1
+content-Type: application/json
+
+{
+    "name": "123214565",
+    "password": "youwillneverguess"
+}
+
+###
+POST https://localhost:5050/user/login HTTP/1.1
+content-Type: application/json
+
+{
+    "name": "123214565",
+    "password": "youwillneverguess"
+}
+
+###
+POST https://localhost:5050/record HTTP/1.1
+content-Type: application/json
+
+{
+    "name": "record"
+}
+###
+POST https://localhost:5050/record HTTP/1.1
+content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3Q5IiwidXNlcmlkIjoiNjM0NTFhMDQyMDE4YmIwY2JjOGIwNGNhIiwiaWF0IjoxNjY1NDczMDY2LCJleHAiOjE2NjU0NzY2NjZ9.FpGxz2CC2koE4PopXTG-qk_Kz93EjLBFBJL0qoWtu60
+
+{
+    "name": "rec"
+}
