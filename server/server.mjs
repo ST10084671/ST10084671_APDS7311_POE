@@ -33,6 +33,10 @@ app.use("/user", users);
 
 let server = https.createServer(options,app)
 
+app.get('/',(req,res)=>{
+  res.send('HTTPS in ExpressJS')
+})
+// start the Express server
 server.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
 });
