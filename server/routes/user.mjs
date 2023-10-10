@@ -10,7 +10,6 @@ const router = express.Router();
 var store = new ExpressBrute.MemoryStore();
 var bruteforce = new ExpressBrute(store);
 
-// Get a list of records
 router.get("/", async(req, res) =>
 {
     let collection = await db.collection("apds");
@@ -18,7 +17,6 @@ router.get("/", async(req, res) =>
     res.send(results).status(200);
 });
 
-// Sign up
 router.post("/", async (req, res) => 
 {
   const password = bcrypt.hash(req.body.password,10)
@@ -33,7 +31,6 @@ router.post("/", async (req, res) =>
     res.send(result).status(204);
 });
   
-// Update a record by the id
   router.patch("/:id", async (req, res) => 
   {
     const query = { _id: new ObjectId(req.params.id) };
@@ -52,7 +49,6 @@ router.post("/", async (req, res) =>
     res.send(result).status(200);
 });
   
-// Delete a record
 router.delete("/:id", async (req, res) => 
 {
     const query = { _id: new ObjectId(req.params.id) };
@@ -63,7 +59,6 @@ router.delete("/:id", async (req, res) =>
     res.send(result).status(200);
 });
   
-// Sign up
 router.post("/login",bruteforce.prevent, async (req, res) => 
 {
     const { name, password } = req.body;
@@ -78,7 +73,6 @@ router.post("/login",bruteforce.prevent, async (req, res) =>
         return res.status(401).json({ message: "Authentication failed" });
       }
   
-      // Compare the provided password with the hashed password in the database
       const passwordMatch = await bcrypt.compare(password, user.password);
   
       if (!passwordMatch) 
