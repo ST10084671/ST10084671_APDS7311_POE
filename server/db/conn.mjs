@@ -2,18 +2,21 @@ import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 dotenv.config();
 
-//const variable = process.env.Mongo_Conn
-//console.log(variable);
+const variable = process.env.MONGO_CONN_STRING
+console.log(variable);
+const client = new MongoClient(variable);
 
-const client = new MongoClient("mongodb+srv://AmmarahKader:Password1234@cluster0.bfuawr1.mongodb.net/");
 let conn;
-try {
+try 
+{
   conn = await client.connect();
-  console.log('mongoDB is CONNECTED!!! :)');
-} catch(e) {
+  console.log('MongoDB Is Connected!!! :)')
+} 
+catch(e) 
+{
   console.error(e);
 }
 
-let db = client.db("apds");
+let db = conn.db("apds");
 
 export default db;
