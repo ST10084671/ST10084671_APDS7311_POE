@@ -10,7 +10,7 @@ const router = express.Router();
 var store = new ExpressBrute.MemoryStore();
 var bruteforce = new ExpressBrute(store);
 
-// This section will help you to get a list of records
+// Get a list of records
 router.get("/", async(req, res) =>
 {
     let collection = await db.collection("apds");
@@ -33,7 +33,7 @@ router.post("/", async (req, res) =>
     res.send(result).status(204);
 });
   
-// This section will help you to update a record by the id
+// Update a record by the id
   router.patch("/:id", async (req, res) => 
   {
     const query = { _id: new ObjectId(req.params.id) };
@@ -52,7 +52,7 @@ router.post("/", async (req, res) =>
     res.send(result).status(200);
 });
   
-// This section will help you to delete a record
+// Delete a record
 router.delete("/:id", async (req, res) => 
 {
     const query = { _id: new ObjectId(req.params.id) };
