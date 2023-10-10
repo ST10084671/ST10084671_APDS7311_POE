@@ -11,7 +11,6 @@ router.get("/", async (req, res) =>
   res.send(results).status(200);
 });
 
-// Get a single record by the id
 router.get("/:id", async (req, res) => 
 {
   let collection = await db.collection("records");
@@ -22,7 +21,6 @@ router.get("/:id", async (req, res) =>
   else res.send(result).status(200);
 });
 
-// Create a new record
 router.post("/", async (req, res) => 
 {
   let newDocument = 
@@ -36,7 +34,6 @@ router.post("/", async (req, res) =>
   res.send(result).status(204);
 });
 
-// Update a record by the id
 router.patch("/:id", async (req, res) => 
 {
   const query = { _id: new ObjectId(req.params.id) };
@@ -56,7 +53,6 @@ router.patch("/:id", async (req, res) =>
   res.send(result).status(200);
 });
 
-// Delete a record
 router.delete("/:id", async (req, res) => 
 {
   const query = { _id: new ObjectId(req.params.id) };
