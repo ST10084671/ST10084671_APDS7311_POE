@@ -7,12 +7,13 @@ import fs from "fs";
 import dotenv from "dotenv";
 dotenv.config();
 
+
 const cert = process.env.CERT;
 const key = process.env.PRIVATE_KEY;
 console.log(cert + "CERT AND KEY" + key)
 
-const options = 
-{
+
+const options = {
   key: fs.readFileSync(key), 
   cert: fs.readFileSync(cert,)
 }
@@ -26,12 +27,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 app.use("/record", records);
 app.use("/user", users);
 
 let server = https.createServer(options,app)
 
-server.listen(PORT, () => 
-{
+server.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
 });
